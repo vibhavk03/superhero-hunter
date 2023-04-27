@@ -30,6 +30,7 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
+  /* display: inline-block; */
 }
 
 p {
@@ -41,7 +42,7 @@ p {
 
 a {
   text-decoration: none;
-  /* display: inline-block; */
+  display: inline-block;
 }
 
 ul {
@@ -57,3 +58,35 @@ ul {
 .center-text {
   text-align: center;
 }
+
+/* navbar */
+#navbar {
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 10px 10px;
+}
+#navbar h3 {
+  color: white;
+}
+
+#search-container {
+  /* margin: auto; */
+  width: 60%;
+}
+
+main {
+  height: 40vh;
+  justify-content: center;
+}
+main input {
+  padding: 5px;
+  border-radius: 6px;
+  width: 100%;
+}
+/* #nav-heading {
+  text-align: start;
+}
+#nav-favourites {
+  text-align: end;
+} */
