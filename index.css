@@ -75,6 +75,7 @@ ul {
   width: 60%;
 }
 
+/* main */
 main {
   height: 40vh;
   justify-content: center;
@@ -83,6 +84,10 @@ main input {
   padding: 5px;
   border-radius: 6px;
   width: 100%;
+}
+
+#search-box {
+  /* position: absolute; */
 }
 /* #nav-heading {
   text-align: start;
