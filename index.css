@@ -95,16 +95,40 @@ main {
   max-height: 30vh;
   overflow-y: auto;
 }
-
-.search-suggestion-li {
+#search-results-ul li {
   border-radius: 3px;
   cursor: pointer;
   padding: 5px;
 }
-.search-suggestion-li:hover {
+#search-results-ul li:hover {
   background-color: var(--secondary-text-color);
 }
 
+/* hero-details */
+#hero-details {
+  /* position: relative; */
+  max-height: 40vh;
+  width: 100%;
+  background-color: burlywood;
+}
+
+#hero-details-left {
+  /* position: absolute; */
+  height: 40vh;
+  padding: 5px;
+  background-color: coral;
+}
+#hero-details-left img {
+  height: 100%;
+}
+#hero-details-right {
+  padding: 5px 10px;
+}
+
+#wrapper {
+  max-width: 500px;
+  margin: 20px auto;
+}
 /* #nav-heading {
   text-align: start;
 }
