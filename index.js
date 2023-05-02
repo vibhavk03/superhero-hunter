@@ -9,8 +9,13 @@ const displayDetails = (elem) => {
   console.log("!!!!!!!!!!!", elem);
 };
 
-searchBox.addEventListener("keyup", async (e) => {
-  e.preventDefault();
+// clear ul when cancel button is clicked in search bar
+searchBox.addEventListener("search", () => {
+  searchResultsUl.innerHTML = "";
+});
+
+searchBox.addEventListener("keyup", async (event) => {
+  event.preventDefault();
   let searchQuery = searchBox.value;
   searchQuery = searchQuery.trim();
 
