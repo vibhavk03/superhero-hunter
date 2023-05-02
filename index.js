@@ -3,11 +3,16 @@ console.log("javascript loaded");
 const searchBox = document.getElementById("search-box");
 const searchResultsUl = document.getElementById("search-results-ul");
 
+const displayDetails = (elem) => {
+  // reset ul to empty when li is clicked
+  searchResultsUl.innerHTML = "";
+  console.log("!!!!!!!!!!!", elem);
+};
+
 searchBox.addEventListener("keyup", async (e) => {
   e.preventDefault();
   let searchQuery = searchBox.value;
   searchQuery = searchQuery.trim();
-  searchResultsUl.innerText = " ";
 
   if (searchQuery.length > 1) {
     let response;
@@ -21,16 +26,15 @@ searchBox.addEventListener("keyup", async (e) => {
       alert("Some error occurred ☹️ Please try again later");
       return;
     }
-    // console.log(response.results);
     const results = response.results;
     searchResultsUl.innerHTML = "";
-    // loop over results array and add to ul
+    /* loop over results array and add to ul */
     if (results) {
       for (elem of results) {
         const newHTML = `
-            <li class="flex">
-                ${elem.name}
-            </li>`;
+          <li class="search-suggestion-li flex" onclick=displayDetails(elem)>
+            ${elem.name}
+          </li>`;
         searchResultsUl.innerHTML += newHTML;
       }
     }

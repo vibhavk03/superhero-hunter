@@ -65,30 +65,39 @@ ul {
   background-color: black;
   color: white;
   padding: 10px 10px;
+  min-width: 500px;
 }
 #navbar h3 {
   color: white;
 }
 
-#search-container {
-  /* margin: auto; */
-  width: 60%;
-}
-
 /* main */
 main {
-  height: 40vh;
-  justify-content: center;
+  margin: 100px auto;
+  max-width: 500px;
+  /* min-width: 500px; */
 }
-main input {
-  padding: 5px;
-  border-radius: 6px;
+
+#search-container {
   width: 100%;
 }
 
 #search-box {
-  /* position: absolute; */
+  padding: 5px;
+  border-radius: 6px;
+  width: 100%;
+  /* position: fixed; */
 }
+
+#search-results-ul {
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.search-suggestion-li {
+  cursor: pointer;
+}
+
 /* #nav-heading {
   text-align: start;
 }
