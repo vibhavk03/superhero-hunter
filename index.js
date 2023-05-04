@@ -8,6 +8,8 @@ const displayDetails = async (heroId) => {
   searchResultsUl.innerHTML = "";
   searchBox.value = "";
 
+  // maybe add collections also to details
+
   let response;
   try {
     response = await fetch(
@@ -22,6 +24,8 @@ const displayDetails = async (heroId) => {
 
   console.log("!!!!!!!!!!!", response);
 
+  if (response.response === "success") {
+  }
   // set background
   const heroDetails = document.getElementById("hero-details");
   heroDetails.setAttribute("style", "background-color:burlywood;");
@@ -75,6 +79,26 @@ const displayDetails = async (heroId) => {
   heroLeaning.innerHTML = `Inclination: ${response.biography.alignment}`;
 
   // check overflow of content using jessica jones
+
+  // const btnDiv = document.getElementById("favourites-btn-div");
+  const btn = document.getElementById("favourites-btn");
+  btn.setAttribute("style", "display:flex;");
+  btn.setAttribute("value", heroId);
+};
+
+const addToFavourites = (heroId) => {
+  let favouritesArray = JSON.parse(localStorage.getItem("favouriteHeros"));
+  if (!favouritesArray) {
+    favouritesArray = [heroId];
+    localStorage.setItem("favouriteHeros", JSON.stringify(favouritesArray));
+    alert("Hero added to your favourites");
+  } else if (favouritesArray.includes(heroId)) {
+    alert("Already added to your favourites!");
+  } else {
+    favouritesArray.push(heroId);
+    localStorage.setItem("favouriteHeros", JSON.stringify(favouritesArray));
+    alert("Hero added to your favourites");
+  }
 };
 
 // clear ul when cancel button is clicked in search bar

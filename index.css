@@ -129,6 +129,10 @@ main {
   max-width: 500px;
   margin: 20px auto;
 }
+
+#favourites-btn {
+  display: none;
+}
 /* #nav-heading {
   text-align: start;
 }
