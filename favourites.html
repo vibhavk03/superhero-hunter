@@ -23,11 +23,26 @@
       </nav>
 
       <main class="">
-        <div id="favourites-display"></div>
+        <div id="favourites-display" class="flex">
+          <div class="hero-outer-div flex">
+            <div class="hero-img">
+              <img src="./assets/iron_man.jpg" alt="" />
+            </div>
+            <div class="hero-name">Iron Man</div>
+            <div class="hero-remove flex">
+              <button class="hero-remove-btn" type="submit" value="HeroId" onclick="removeFromFavourites(this.value)">
+                <span>Remove</span> <i class="fa-sharp fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
       </main>
 
       <!-- <footer>By Vibhav Kashyap</footer> -->
     </div>
+    <script
+      src="https://kit.fontawesome.com/5e6e3315b0.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./favourites.js"></script>
   </body>
 </html>

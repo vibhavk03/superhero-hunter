@@ -63,3 +63,47 @@ ul {
 #navbar h3 {
   color: white;
 }
+
+#favourites-display {
+  min-width: 500px;
+  gap: 30px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-outer-div {
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+  height: 320px;
+  gap: 5px;
+  /* height: 40vh; */
+}
+.hero-img {
+  height: 80%;
+}
+.hero-img img {
+  height: 100%;
+}
+.hero-name {
+  /* font-size: 1.4rem; */
+  /* flex-grow: 1; */
+  /* padding: 2px; */
+  height: 10%;
+}
+.hero-remove {
+  height: 10%;
+  justify-content: center;
+  width: 100%;
+  /* margin-top: 5px; */
+}
+.hero-remove-btn {
+  height: 100%;
+  width: 60%;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+.hero-remove-btn span {
+  font-size: 0.9rem;
+}
