@@ -22,7 +22,7 @@ const displayDetails = async (heroId) => {
     return;
   }
 
-  console.log("!!!!!!!!!!!", response);
+  // console.log("!!!!!!!!!!!", response);
 
   if (response.response === "success") {
   }
