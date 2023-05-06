@@ -77,6 +77,7 @@ ul {
   padding: 10px;
   height: 320px;
   gap: 5px;
+  width: 200px;
   /* height: 40vh; */
 }
 .hero-img {

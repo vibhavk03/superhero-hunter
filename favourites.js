@@ -4,8 +4,12 @@ const favouritesDisplayDiv = document.getElementById("favourites-display");
 
 let favouritesArray = JSON.parse(localStorage.getItem("favouriteHeros"));
 
-const removeFromFavourites = () => {
-  console.log("hehehehehehhehehehe");
+const removeFromFavourites = (heroId) => {
+  favouritesArray = favouritesArray.filter(
+    (arrayHeroId) => arrayHeroId !== heroId
+  );
+  localStorage.setItem("favouriteHeros", JSON.stringify(favouritesArray));
+  loadHeros();
 };
 
 const displayHero = async (heroId) => {
@@ -48,6 +52,13 @@ if (!favouritesArray) {
   console.log("no favourites");
   favouritesDisplayDiv.innerHTML = "<h2>No Favourites Added yet!</h2>";
 } else {
+  loadHeros();
+}
+
+// not async
+function loadHeros() {
+  favouritesDisplayDiv.innerHTML = ``;
+  // use int i = 0 merthod because it is using randomly otherwise
   favouritesArray.forEach(async (heroId) => {
     await displayHero(heroId);
   });
