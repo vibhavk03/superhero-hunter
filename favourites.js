@@ -1,8 +1,10 @@
 const favouritesDisplayDiv = document.getElementById("favourites-display");
 const favouritesHeading = document.getElementById("favourites-heading");
 
+/* get favourites array from local storage */
 let favouritesArray = JSON.parse(localStorage.getItem("favouriteHeros"));
 
+/* remove hero id from favourites array and re-render favourite heros */
 const removeFromFavourites = (heroId) => {
   favouritesArray = favouritesArray.filter(
     (arrayHeroId) => arrayHeroId !== heroId
@@ -11,6 +13,7 @@ const removeFromFavourites = (heroId) => {
   loadHeros();
 };
 
+/* renders the hero onto the page */
 const displayHero = async (heroId) => {
   let response;
   try {
@@ -47,25 +50,29 @@ const displayHero = async (heroId) => {
   }
 };
 
+/* calls render function for all the hero ids in the favourites array */
 function loadHeros() {
   favouritesDisplayDiv.innerHTML = ``;
   if (favouritesArray.length === 0) {
+    /* if no heros left after removing */
     favouritesHeading.innerHTML = "<h2>No Favourites Added yet!</h2>";
     favouritesHeading.setAttribute("id", "no-favourites-yet");
   } else {
     favouritesHeading.innerHTML = "<h2>Your Favourites</h2>";
   }
-  // use int i = 0 merthod because it is using randomly otherwise
-  favouritesArray.forEach(async (heroId) => {
-    await displayHero(heroId);
+  /* calling render function for each hero id */
+  favouritesArray.forEach((heroId) => {
+    displayHero(heroId);
   });
 }
 
 if (!favouritesArray) {
+  /* no favourite heros added yet */
   favouritesHeading.innerHTML = "<h2>No Favourites Added yet!</h2>";
   favouritesHeading.setAttribute("id", "no-favourites-yet");
 } else {
+  /* display all favourite heros present in the favourites array */
   loadHeros();
 }
 
-//["415","346","347","73","286","712","299","577","623","630","589","60","165","36","345","317","107","626","150","441"]
+// ["415","346","347","73","286","712","299","577","623","630","589","60","165","36","345","317","107","626","150","441"]
