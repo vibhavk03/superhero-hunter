@@ -29,6 +29,7 @@ const displayDetails = async (heroId) => {
   if (response.response === "success") {
   }
   // set background
+  // console.log(response);
   const heroDetails = document.getElementById("hero-details");
   heroDetails.setAttribute("style", "background: none;");
   heroDetails.setAttribute("style", "background-color: rgba(0, 0, 0, 0.2);");
@@ -40,29 +41,31 @@ const displayDetails = async (heroId) => {
   heroImage.setAttribute("src", response.image.url);
 
   const heroName = document.getElementById("hero-name");
-  heroName.innerHTML = response.name;
+  // clear previous data present
+  heroName.innerHTML = ``;
+  heroName.innerHTML = `<span>${response.name}</span>`;
 
   const heroWork = document.getElementById("hero-work");
   const { occupation, base } = response.work;
+  heroWork.innerHTML = ``;
   if (occupation !== "-") {
-    heroWork.innerHTML = `Occupation: ${occupation}`;
+    heroWork.innerHTML = `<span>Occupation:</span> ${occupation}<br>`;
   }
   if (base !== "-") {
     heroWork.innerHTML += `
-      <br />
-      Base: ${base}
+      <span>Base:</span> ${base}
     `;
   }
 
   // destructure name and alteregos here
   const heroBiography = document.getElementById("hero-biography");
+  heroBiography.innerHTML = ``;
   if (response.biography["full-name"]) {
-    heroBiography.innerHTML = `Full Name: ${response.biography["full-name"]}`;
+    heroBiography.innerHTML = `<span>Full Name:</span> ${response.biography["full-name"]}<br>`;
   }
   if (response.biography["alter-egos"] !== "No alter egos found.") {
     heroBiography.innerHTML += `
-      <br />
-      Alter Egos: ${response.biography["alter-egos"]}
+      <span>Alter Egos:</span> ${response.biography["alter-egos"]}
     `;
   }
 
@@ -71,18 +74,19 @@ const displayDetails = async (heroId) => {
   const { intelligence, strength, speed, power, combat } = response.powerstats;
   // check if any of these are not null
   // check hawk woman
+  heroPowerstats.innerHTML = ``;
   heroPowerstats.innerHTML = `
-    Powerstats:
-    <br />
-    Intelligence : ${intelligence}
-    Strength: ${strength}
-    Speed: ${speed}
-    Power: ${power}
-    Combat: ${combat}
+    <span>Powerstats:</span><br>
+    Intelligence : ${intelligence}<br>
+    Strength: ${strength}<br>
+    Speed: ${speed}<br>
+    Power: ${power}<br>
+    Combat: ${combat}<br>
   `;
 
   const heroLeaning = document.getElementById("hero-leaning");
-  heroLeaning.innerHTML = `Inclination: ${response.biography.alignment}`;
+  heroLeaning.innerHTML = ``;
+  heroLeaning.innerHTML = `<span>Inclination:</span> ${response.biography.alignment.toUpperCase()}`;
 
   // check overflow of content using jessica jones
 
