@@ -113,3 +113,18 @@ ul {
 .hero-remove-btn span {
   font-size: 0.9rem;
 }
+
+/* sticky footer styles */
+#container {
+  padding-bottom: 7.5vh;
+}
+footer {
+  justify-content: flex-end;
+  padding: 5px 15px;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 5vh;
+  max-height: 7.5vh;
+}
