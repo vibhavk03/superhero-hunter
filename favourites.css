@@ -75,6 +75,13 @@ ul {
   flex-wrap: wrap;
 }
 
+#favourites-heading {
+  margin: 20px;
+}
+#no-favourites-yet {
+  margin-top: 100px;
+}
+
 .hero-outer-div {
   flex-direction: column;
   /* border: 1px solid black; */

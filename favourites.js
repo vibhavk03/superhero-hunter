@@ -1,6 +1,7 @@
 console.log("javascript loaded for favourites");
 
 const favouritesDisplayDiv = document.getElementById("favourites-display");
+const favouritesHeading = document.getElementById("favourites-heading");
 
 let favouritesArray = JSON.parse(localStorage.getItem("favouriteHeros"));
 
@@ -50,16 +51,19 @@ const displayHero = async (heroId) => {
 
 if (!favouritesArray) {
   console.log("no favourites");
-  favouritesDisplayDiv.innerHTML = "<h2>No Favourites Added yet!</h2>";
+  favouritesHeading.innerHTML = "<h2>No Favourites Added yet!</h2>";
+  favouritesHeading.setAttribute("id", "no-favourites-yet");
 } else {
   loadHeros();
 }
 
-// not async
 function loadHeros() {
   favouritesDisplayDiv.innerHTML = ``;
+  favouritesHeading.innerHTML = "<h2>Your Favourites</h2>";
   // use int i = 0 merthod because it is using randomly otherwise
   favouritesArray.forEach(async (heroId) => {
     await displayHero(heroId);
   });
 }
+
+//["415","346","347","73","286","712","299","577","623","630","589","60","165","36","345","317","107","626","150","441"]
