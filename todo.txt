@@ -1,0 +1,5 @@
+1 - clean css files
+2 - maybe add footer
+3 - maybe add alien sliding and transitioning on the footer
+4 - add comments in HTML file
+5 - add comments in CSS file
