@@ -30,54 +30,62 @@ const displayDetails = async (heroId) => {
     const heroDetailsRight = document.getElementById("hero-details-right");
     heroDetailsRight.scrollTop = 0;
 
-    // const {image, name, work, connections} = response;
+    const { image, name, work, connections, biography, powerstats } = response;
 
     /* set hero image */
     const heroImage = document.getElementById("hero-image");
-    heroImage.setAttribute("src", response.image.url);
+    if (image.url) {
+      heroImage.setAttribute("src", image.url);
+    }
 
     /* set hero-name */
     const heroName = document.getElementById("hero-name");
     heroName.innerHTML = ``; /* clear previous data present */
-    heroName.innerHTML = `<span>${response.name}</span>`;
+    heroName.innerHTML = `<span>${name}</span>`;
 
     /* set hero work */
     const heroWork = document.getElementById("hero-work");
-    const { occupation, base } = response.work;
+    const { occupation, base } = work;
     heroWork.innerHTML = ``;
     if (occupation !== "-") {
       heroWork.innerHTML = `<span>Occupation:</span> ${occupation}<br>`;
     }
     if (base !== "-") {
       heroWork.innerHTML += `
-      <span>Base:</span> ${base}
-    `;
+        <span>Base:</span> ${base}
+      `;
     }
 
     /* set hero connections */
     let relatives;
     const heroConnections = document.getElementById("hero-connections");
-    if (response.connections) {
-      if (response.connections["group-affiliation"] !== "-") {
+    if (connections) {
+      const {
+        "group-affiliation": groupAffiliation,
+        relatives: connectionsRelatives,
+      } = connections;
+      if (groupAffiliation !== "-") {
         heroConnections.innerHTML = `
-          <span>Group Affiliations:</span> ${response.connections["group-affiliation"]}<br>
+          <span>Group Affiliations:</span> ${connections["group-affiliation"]}<br>
         `;
       }
-      relatives = response.connections.relatives;
+      relatives = connectionsRelatives;
     }
 
-    // destructure name and alteregos here
     /* set hero biography */
     const heroBiography = document.getElementById("hero-biography");
     heroBiography.innerHTML = ``;
-    // const { "full-name": fullName } = response.biography;
-    // console.log("full", fullName);
-    if (response.biography["full-name"]) {
+    const {
+      "full-name": fullName,
+      "alter-egos": alterEgos,
+      alignment,
+    } = biography;
+    if (fullName) {
       heroBiography.innerHTML = `<span>Full Name:</span> ${response.biography["full-name"]}<br>`;
     }
-    if (response.biography["alter-egos"] !== "No alter egos found.") {
+    if (alterEgos !== "No alter egos found.") {
       heroBiography.innerHTML += `
-        <span>Alter Egos:</span> ${response.biography["alter-egos"]}
+        <span>Alter Egos:</span> ${alterEgos}<br>
       `;
     }
     if (relatives && relatives !== "-") {
@@ -88,8 +96,7 @@ const displayDetails = async (heroId) => {
 
     /* set hero powerstats */
     const heroPowerstats = document.getElementById("hero-powerstats");
-    const { intelligence, strength, speed, power, combat } =
-      response.powerstats;
+    const { intelligence, strength, speed, power, combat } = powerstats;
     heroPowerstats.innerHTML = ``;
     heroPowerstats.innerHTML = `
       <span>Powerstats:</span><br>
@@ -105,7 +112,9 @@ const displayDetails = async (heroId) => {
     /* set hero inclination */
     const heroLeaning = document.getElementById("hero-leaning");
     heroLeaning.innerHTML = ``;
-    heroLeaning.innerHTML = `<span>Inclination:</span> ${response.biography.alignment.toUpperCase()}`;
+    if (alignment) {
+      heroLeaning.innerHTML = `<span>Inclination:</span> ${alignment.toUpperCase()}`;
+    }
 
     /* add favourites button */
     const favouritesButton = document.getElementById("favourites-btn");
