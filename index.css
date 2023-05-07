@@ -125,6 +125,7 @@ main {
   /* flex-wrap: wrap; */
   max-height: 50vh;
   width: 100%;
+  border-radius: 2px;
   /* min-height: 0px; */
 }
 
@@ -163,13 +164,14 @@ main {
 
 #favourites-btn {
   display: none;
-  padding: 3px 5px;
+  padding: 4px 6px;
   border-radius: 3px;
   /* border: 2px solid black; */
   border: none;
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-weight: 500;
+  border-radius: 2.5px;
   /* color: #f7f1f0; */
 }
 /* #nav-heading {

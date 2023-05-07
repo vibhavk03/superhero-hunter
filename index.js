@@ -6,11 +6,9 @@ const searchResultsUl = document.getElementById("search-results-ul");
 // Blaquesmith check image 404 issue with this one
 
 const displayDetails = async (heroId) => {
-  // reset ul to empty when li is clicked
+  /* reset ul and search box to empty when li is clicked */
   searchResultsUl.innerHTML = "";
   searchBox.value = "";
-
-  // maybe add collections also to details
 
   let response;
   try {
@@ -24,18 +22,16 @@ const displayDetails = async (heroId) => {
     return;
   }
 
-  // console.log("!!!!!!!!!!!", response);
-
   if (response.response === "success") {
   }
+
   // set background
   // console.log(response);
   const heroDetails = document.getElementById("hero-details");
   heroDetails.setAttribute("style", "background: none;");
   heroDetails.setAttribute("style", "background-color: rgba(0, 0, 0, 0.2);");
 
-  // const heroDetailsLeft = document.getElementById("hero-details-left");
-  // heroDetailsLeft.setAttribute("style", "background-color:#ff0000;");
+  // const {image, name, work, connections} = response;
 
   const heroImage = document.getElementById("hero-image");
   heroImage.setAttribute("src", response.image.url);
@@ -57,9 +53,22 @@ const displayDetails = async (heroId) => {
     `;
   }
 
+  let relatives;
+  const heroConnections = document.getElementById("hero-connections");
+  if (response.connections) {
+    if (response.connections["group-affiliation"] !== "-") {
+      heroConnections.innerHTML = `
+        <span>Group Affiliations:</span> ${response.connections["group-affiliation"]}<br>
+      `;
+    }
+    relatives = response.connections.relatives;
+  }
+
   // destructure name and alteregos here
   const heroBiography = document.getElementById("hero-biography");
   heroBiography.innerHTML = ``;
+  // const { "full-name": fullName } = response.biography;
+  // console.log("full", fullName);
   if (response.biography["full-name"]) {
     heroBiography.innerHTML = `<span>Full Name:</span> ${response.biography["full-name"]}<br>`;
   }
@@ -68,32 +77,31 @@ const displayDetails = async (heroId) => {
       <span>Alter Egos:</span> ${response.biography["alter-egos"]}
     `;
   }
+  if (relatives && relatives !== "-") {
+    heroBiography.innerHTML += `
+      <span>Relatives:</span> ${relatives}
+    `;
+  }
 
-  // br is not doing anything here
   const heroPowerstats = document.getElementById("hero-powerstats");
   const { intelligence, strength, speed, power, combat } = response.powerstats;
-  // check if any of these are not null
-  // check hawk woman
   heroPowerstats.innerHTML = ``;
   heroPowerstats.innerHTML = `
     <span>Powerstats:</span><br>
-    Intelligence : ${intelligence}<br>
-    Strength: ${strength}<br>
-    Speed: ${speed}<br>
-    Power: ${power}<br>
-    Combat: ${combat}<br>
+    Intelligence : ${intelligence === "null" ? "unavailable" : intelligence}<br>
+    Strength: ${strength === "null" ? "unavailable" : strength}<br>
+    Speed: ${speed === "null" ? "unavailable" : speed}<br>
+    Power: ${power === "null" ? "unavailable" : power}<br>
+    Combat: ${combat === "null" ? "unavailable" : combat}<br>
   `;
 
   const heroLeaning = document.getElementById("hero-leaning");
   heroLeaning.innerHTML = ``;
   heroLeaning.innerHTML = `<span>Inclination:</span> ${response.biography.alignment.toUpperCase()}`;
 
-  // check overflow of content using jessica jones
-
-  // const btnDiv = document.getElementById("favourites-btn-div");
-  const btn = document.getElementById("favourites-btn");
-  btn.setAttribute("style", "display:flex;");
-  btn.setAttribute("value", heroId);
+  const favouritesButton = document.getElementById("favourites-btn");
+  favouritesButton.setAttribute("style", "display:flex;");
+  favouritesButton.setAttribute("value", heroId);
 };
 
 const addToFavourites = (heroId) => {
