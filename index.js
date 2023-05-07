@@ -3,6 +3,8 @@ console.log("javascript loaded");
 const searchBox = document.getElementById("search-box");
 const searchResultsUl = document.getElementById("search-results-ul");
 
+// Blaquesmith check image 404 issue with this one
+
 const displayDetails = async (heroId) => {
   // reset ul to empty when li is clicked
   searchResultsUl.innerHTML = "";
@@ -29,6 +31,9 @@ const displayDetails = async (heroId) => {
   // set background
   const heroDetails = document.getElementById("hero-details");
   heroDetails.setAttribute("style", "background-color:burlywood;");
+
+  const heroDetailsLeft = document.getElementById("hero-details-left");
+  heroDetailsLeft.setAttribute("style", "background-color:coral;");
 
   const heroImage = document.getElementById("hero-image");
   heroImage.setAttribute("src", response.image.url);
