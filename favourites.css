@@ -9,15 +9,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  /* color: var(--primary-text-color); */
-  /* background-color: cadetblue; */
   background-image: url("./assets/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-h1 {
-  font-size: 3rem;
 }
 
 h2 {
@@ -26,14 +20,6 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
-  /* display: inline-block; */
-}
-
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
-  color: var(--secondary-text-color);
-  line-height: 1.8rem;
 }
 
 a {
@@ -67,6 +53,7 @@ ul {
   color: white;
 }
 
+/* favourites display */
 #favourites-display {
   min-width: 500px;
   gap: 30px;
@@ -78,41 +65,42 @@ ul {
 #favourites-heading {
   margin: 20px;
 }
+
 #no-favourites-yet {
   margin-top: 100px;
 }
 
+/* hero details display */
 .hero-outer-div {
   flex-direction: column;
-  /* border: 1px solid black; */
+  gap: 5px;
   background: none;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 10px;
   height: 320px;
-  gap: 5px;
   width: 200px;
   border-radius: 2px;
-  /* height: 40vh; */
 }
+
 .hero-img {
   height: 80%;
 }
 .hero-img img {
   height: 100%;
 }
+
 .hero-name {
-  /* font-size: 1.4rem; */
-  /* flex-grow: 1; */
-  /* padding: 2px; */
   height: 10%;
   font-weight: 600;
 }
+
 .hero-remove {
   height: 10%;
   justify-content: center;
   width: 100%;
-  /* margin-top: 5px; */
 }
+
+/* remove hero from favourites button */
 .hero-remove-btn {
   height: 100%;
   width: 60%;
