@@ -30,10 +30,11 @@ const displayDetails = async (heroId) => {
   }
   // set background
   const heroDetails = document.getElementById("hero-details");
-  heroDetails.setAttribute("style", "background-color:burlywood;");
+  heroDetails.setAttribute("style", "background: none;");
+  heroDetails.setAttribute("style", "background-color: rgba(0, 0, 0, 0.2);");
 
-  const heroDetailsLeft = document.getElementById("hero-details-left");
-  heroDetailsLeft.setAttribute("style", "background-color:coral;");
+  // const heroDetailsLeft = document.getElementById("hero-details-left");
+  // heroDetailsLeft.setAttribute("style", "background-color:#ff0000;");
 
   const heroImage = document.getElementById("hero-image");
   heroImage.setAttribute("src", response.image.url);

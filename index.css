@@ -113,7 +113,10 @@ main {
   padding: 5px;
 }
 #search-results-ul li:hover {
-  background-color: var(--secondary-text-color);
+  /* background-color: var(--secondary-text-color); */
+  /* opacity: 0.5; */
+  background: none;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* hero-details */
