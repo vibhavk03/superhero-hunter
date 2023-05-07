@@ -7,13 +7,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary-text-color: #183b56;
-  --secondary-text-color: #577592;
-  --primary-color: #16b988;
-  --primary-color-dark: #12906a;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   background-image: url("./assets/background.jpg");
