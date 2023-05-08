@@ -2,7 +2,7 @@
 
 ![](assets/home_screen.JPG)
 
-Access this project live here -->
+Access this project live here --> https://vibhavk03.github.io/superhero-hunter/index.html
 
 This is a superhero search portal where you can search all superheros and add them to your favourites.
 Typing a search query in the search box would show some search suggestions. On clicking one of the suggestions it would load all the hero details onto the page. You can add this hero to your favourites by clickin on the 'add to favourites' button.
@@ -15,5 +15,3 @@ By clicking on the favourites button on the top right corner of the page you can
 
 This project uses vanilla javascript, HTML and CSS.
 API call is performed by using the Fetch API.
-
-## Approach
