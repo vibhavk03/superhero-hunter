@@ -74,5 +74,3 @@ if (!favouritesArray) {
   /* display all favourite heros present in the favourites array */
   loadHeros();
 }
-
-// ["415","346","347","73","286","712","299","577","623","630","589","60","165","36","345","317","107","626","150","441"]
